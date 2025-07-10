@@ -1,0 +1,30 @@
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { appRoutes, authRoutes, images } from '../utils/constants';
+import { NgOptimizedImage } from '@angular/common';
+
+@Component({
+  selector: 'app-header',
+  standalone: true,
+  imports: [RouterModule, NgOptimizedImage],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css'
+})
+export class HeaderComponent {
+  public cartRoute = appRoutes.cart;
+  public profileRoute = appRoutes.profile;
+  public aboutRoute = appRoutes.about;
+  public contactRoute = appRoutes.contact;
+  public productsRoute = appRoutes.products;
+  public categoriesRoute = appRoutes.categories;
+  public searchImage = images.search;
+  public profileImage = images.user;
+  public loginRoute = authRoutes.login;
+  public hamburgerImage = images.hamburger;
+  public closeImage = images.close;
+  public lightLogo = images.lightLogo;
+  public darkLogo = images.darkLogo;
+  public cartImage = images.cart;
+
+  public isMenuOpen = false;
+}
