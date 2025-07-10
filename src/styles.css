@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+    /* Light Theme */
+    --color-background: #ffffff;
+    --color-foreground: #0f172a;
+    --color-primary: #ffc107;
+    --color-primary-foreground: #1e293b;
+    --color-secondary: #f1f5f9;
+    --color-secondary-foreground: #1e293b;
+    --color-muted: #f1f5f9;
+    --color-muted-foreground: #64748b;
+    --color-accent: #ffc107;
+    --color-accent-foreground: #1e293b;
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #f8fafc;
+    --color-border: #e2e8f0;
+    --color-input: #e2e8f0;
+    --color-ring: #ffc107;
+}
+
+/* Dark Theme overrides */
+.dark {
+  @theme {
+    --color-background: #0f172a;
+    --color-foreground: #f8fafc;
+    --color-primary: #ffc107;
+    --color-primary-foreground: #1e293b;
+    --color-secondary: #1e293b;
+    --color-secondary-foreground: #f8fafc;
+    --color-muted: #1e293b;
+    --color-muted-foreground: #94a3b8;
+    --color-accent: #ffc107;
+    --color-accent-foreground: #f8fafc;
+    --color-destructive: #7f1d1d;
+    --color-destructive-foreground: #f8fafc;
+    --color-border: #1e293b;
+    --color-input: #1e293b;
+    --color-ring: #ffc107;
+  } 
+}
+
+@layer base {
+    body {
+        @apply bg-background text-gray-900 font-sans;
+        font-family: 'Roboto Flex', sans-serif;
+    }
+}
