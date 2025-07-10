@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgToastComponent, TOAST_POSITIONS, ToastPosition } from 'ng-angular-popup';
+import { HeaderComponent } from './shared/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgToastComponent],
+  imports: [RouterOutlet, NgToastComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
