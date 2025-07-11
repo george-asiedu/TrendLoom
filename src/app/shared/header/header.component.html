@@ -1,0 +1,183 @@
+<header class="bg-background w-full border-b border-border sticky top-0 z-50">
+  <div class="container mx-auto p-6 md:px-4 lg:px-6 flex items-center justify-between">
+    <h1 routerLink="/" class="text-primary cursor-pointer">
+      Trend<span class="text-foreground">Loom</span>
+    </h1>
+    <nav class="hidden lg:flex items-center space-x-4">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-accent"
+      >
+        Home
+      </a>
+      <a
+        routerLink="{{ productsRoute }}"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-accent"
+      >
+        Shop
+      </a>
+      <a
+        routerLink="{{ categoriesRoute }}"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-accent"
+      >
+        Categories
+      </a>
+      <a
+        routerLink="{{ aboutRoute }}"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-accent"
+      >
+        About
+      </a>
+      <a
+        routerLink="{{ contactRoute }}"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-accent"
+      >
+        Contact
+      </a>
+    </nav>
+    <div class="hidden lg:flex items-center space-x-4">
+      <a
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-accent cursor-pointer"
+      >
+        <img
+          [ngSrc]="searchImage"
+          width="20"
+          height="20"
+          alt="search-icon"
+        />
+      </a>
+      <a
+        routerLink="{{ cartRoute }}"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-accent cursor-pointer"
+      >
+        <img
+          [ngSrc]="cartImage"
+          width="20"
+          height="20"
+          alt="cart-icon"
+        />
+      </a>
+      <a
+        routerLink="{{ profileRoute }}"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-accent cursor-pointer"
+      >
+        <img
+          [ngSrc]="profileImage"
+          width="20"
+          height="20"
+          alt="profile-icon"
+        />
+      </a>
+      <button
+        routerLink="{{ loginRoute }}"
+        class="bg-primary tracking-wide text-accent-foreground border-none rounded-md px-6 py-2 cursor-pointer hover:ring-1 hover:ring-accent hover:bg-transparent hover:font-medium"
+      >
+        Login
+      </button>
+    </div>
+
+    <div class="lg:hidden flex items-center space-x-4">
+      <button (click)="isMenuOpen = !isMenuOpen" class="text-foreground hover:text-accent">
+        @if (!isMenuOpen) {
+          <img
+            [ngSrc]="hamburgerImage"
+            width="20"
+            height="20"
+            alt="hamburger-icon"
+          />
+        } @else{
+            <img
+              [ngSrc]="closeImage"
+              width="20"
+              height="20"
+              alt="close-icon"
+            />
+          }
+      </button>
+    </div>
+  </div>
+
+  @if (isMenuOpen) {
+    <div
+      class="lg:hidden px-3 md:px-6 absolute top-full left-0 w-full bg-background border-t border-border z-40 transition-all duration-300"
+    >
+      <nav class="flex flex-col p-4 space-y-4">
+        <a routerLink="/" (click)="isMenuOpen = false" class="hover:text-accent"
+          >Home</a
+        >
+        <a
+          routerLink="{{ productsRoute }}"
+          (click)="isMenuOpen = false"
+          class="hover:text-accent"
+          >Shop</a
+        >
+        <a
+          routerLink="{{ categoriesRoute }}"
+          (click)="isMenuOpen = false"
+          class="hover:text-accent"
+          >Categories</a
+        >
+        <a
+          routerLink="{{ aboutRoute }}"
+          (click)="isMenuOpen = false"
+          class="hover:text-accent"
+          >About</a
+        >
+        <a
+          routerLink="{{ contactRoute }}"
+          (click)="isMenuOpen = false"
+          class="hover:text-accent"
+          >Contact</a
+        >
+        <div class="flex items-center space-x-4 pt-2 border-t border-border mt-2">
+          <a class="cursor-pointer">
+            <img
+              [ngSrc]="searchImage"
+              width="20"
+              height="20"
+              alt="search"
+            />
+          </a>
+          <a routerLink="{{ cartRoute }}">
+            <img
+              [ngSrc]="cartImage"
+              width="20"
+              height="20"
+              alt="cart"
+            />
+          </a>
+          <a routerLink="{{ profileRoute }}">
+            <img
+              [ngSrc]="profileImage"
+              width="20"
+              height="20"
+              alt="profile"
+            />
+          </a>
+          <button
+            routerLink="{{ loginRoute }}"
+            class="bg-primary tracking-wide text-accent-foreground border-none rounded-md px-4 py-1 hover:ring hover:ring-accent hover:bg-transparent hover:font-medium"
+          >
+            Login
+          </button>
+        </div>
+      </nav>
+    </div>
+  }
+</header>
