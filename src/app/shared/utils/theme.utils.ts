@@ -1,31 +1,65 @@
 import { DestroyRef, effect, inject, signal } from '@angular/core';
 
 export const useThemeSwitcher = (key: string, initialValue: string) => {
-  const value = signal<string>(initialValue);
+  // Check for stored theme or system preference
+  const getInitialTheme = (): string => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem(key);
+      if (stored) return stored;
 
-  const storedValue: string | null = localStorage.getItem(key);
-  if (storedValue !== null) {
-    value.set(storedValue);
-    document.body.setAttribute('data-theme', storedValue);
+      // Check system preference
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+    }
+    return initialValue;
+  };
+
+  const value = signal<string>(getInitialTheme());
+
+  // Apply theme to document
+  const applyTheme = (theme: string) => {
+    document.body.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+  };
+
+  // Apply initial theme
+  if (typeof window !== 'undefined') {
+    applyTheme(value());
   }
 
+  // Handle storage changes from other tabs
   function storageHandler(e: StorageEvent): void {
-    if (e.key === key) {
-      const newValue: string = e.newValue ?? '';
-      value.set(newValue);
-      document.body.setAttribute('data-theme', newValue);
+    if (e.key === key && e.newValue) {
+      value.set(e.newValue);
+      applyTheme(e.newValue);
     }
   }
 
-  window.addEventListener('storage', storageHandler, true);
+  if (typeof window !== 'undefined') {
+    window.addEventListener('storage', storageHandler, true);
+  }
 
+  // Save to localStorage when value changes
   effect(() => {
-    localStorage.setItem(key, value());
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(key, value());
+      applyTheme(value());
+    }
   });
 
+  // Cleanup
   inject(DestroyRef).onDestroy(() => {
-    window.removeEventListener('storage', storageHandler);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('storage', storageHandler);
+    }
   });
 
-  return { value };
+  return {
+    value,
+    toggle: () => {
+      const newTheme = value() === 'dark' ? 'light' : 'dark';
+      value.set(newTheme);
+    },
+  };
 };
