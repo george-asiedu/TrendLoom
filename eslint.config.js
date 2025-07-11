@@ -21,6 +21,7 @@ module.exports = tseslint.config(
         ...ngrx.configs.effects,
         ...ngrx.configs.store,
       ...ngrx.configs.operators,
+      ...ngrx.configs.signals
     ],
     processor: angular.processInlineTemplates,
     rules: {
