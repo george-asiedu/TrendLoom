@@ -1,12 +1,25 @@
 <button
   type="button"
-  class="bg-transparent w-[30px] h-[30px] p-2 rounded-full border-border cursor-pointer hover:bg-primary focus:right-2 focus:ring-accent focus:bg-accent"
+  class="bg-transparent w-[30px] h-[30px] p-[6px] rounded-full border border-border cursor-pointer hover:bg-accent focus:ring-2 focus:ring-accent transition-all duration-200"
   (click)="themeToggle()"
-  [attr.data-active-theme]="theme"
+  [attr.data-theme]="currentTheme()"
+  [attr.aria-label]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
 >
-  @if (isDark) {
-    <img [ngSrc]="moonIcon" width="20" height="20" alt="dark-icon" />
+  @if (isDark()) {
+    <img 
+      [ngSrc]="moonIcon" 
+      width="20" 
+      height="20" 
+      alt="Switch to light mode"
+      class="icon-filter theme-transition"
+    />
   } @else {
-    <img [ngSrc]="sunIcon" width="20" height="20" alt="light-icon" />
+    <img 
+      [ngSrc]="sunIcon" 
+      width="20" 
+      height="20" 
+      alt="Switch to dark mode"
+      class="icon-filter theme-transition"
+    />
   }
 </button>
