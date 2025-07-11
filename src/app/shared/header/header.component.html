@@ -84,6 +84,7 @@
           alt="profile-icon"
         />
       </a>
+      <app-theme />
       <button
         routerLink="{{ loginRoute }}"
         class="bg-primary tracking-wide text-accent-foreground border-none rounded-md px-6 py-2 cursor-pointer hover:ring-1 hover:ring-accent hover:bg-transparent hover:font-medium"
@@ -93,7 +94,8 @@
     </div>
 
     <div class="lg:hidden flex items-center space-x-4">
-      <button (click)="isMenuOpen = !isMenuOpen" class="text-foreground hover:text-accent">
+      <app-theme />
+      <button (click)="isMenuOpen = !isMenuOpen" class="text-foreground hover:text-accent transition-colors">
         @if (!isMenuOpen) {
           <img
             [ngSrc]="hamburgerImage"
