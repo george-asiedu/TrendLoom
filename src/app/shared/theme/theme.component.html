@@ -1,0 +1,12 @@
+<button
+  type="button"
+  class="bg-transparent w-[30px] h-[30px] p-2 rounded-full border-border cursor-pointer hover:bg-primary focus:right-2 focus:ring-accent focus:bg-accent"
+  (click)="themeToggle()"
+  [attr.data-active-theme]="theme"
+>
+  @if (isDark) {
+    <img [ngSrc]="moonIcon" width="20" height="20" alt="dark-icon" />
+  } @else {
+    <img [ngSrc]="sunIcon" width="20" height="20" alt="light-icon" />
+  }
+</button>
