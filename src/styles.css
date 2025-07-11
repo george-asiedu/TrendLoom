@@ -1,50 +1,76 @@
 @import "tailwindcss";
 
-@theme {
-    /* Light Theme */
-    --color-background: #ffffff;
-    --color-foreground: #0f172a;
-    --color-primary: #ffc107;
-    --color-primary-foreground: #1e293b;
-    --color-secondary: #f1f5f9;
-    --color-secondary-foreground: #1e293b;
-    --color-muted: #f1f5f9;
-    --color-muted-foreground: #64748b;
-    --color-accent: #ffc107;
-    --color-accent-foreground: #1e293b;
-    --color-destructive: #ef4444;
-    --color-destructive-foreground: #f8fafc;
-    --color-border: #e2e8f0;
-    --color-input: #e2e8f0;
-    --color-ring: #ffc107;
+/* Dark Theme - using data-theme attribute */
+@media (prefers-color-scheme: dark) {
+    @theme {
+        --color-background: #0f172a;
+        --color-foreground: #f8fafc;
+        --color-primary: #ffc107;
+        --color-primary-foreground: #1e293b;
+        --color-secondary: #1e293b;
+        --color-secondary-foreground: #f8fafc;
+        --color-muted: #1e293b;
+        --color-muted-foreground: #94a3b8;
+        --color-accent: #ffc107;
+        --color-accent-foreground: #f8fafc;
+        --color-destructive: #7f1d1d;
+        --color-destructive-foreground: #f8fafc;
+        --color-border: #1e293b;
+        --color-input: #1e293b;
+        --color-ring: #ffc107;
+    }
 }
 
-/* Dark Theme overrides */
-.dark {
-  @theme {
-    --color-background: #0f172a;
-    --color-foreground: #f8fafc;
-    --color-primary: #ffc107;
-    --color-primary-foreground: #1e293b;
-    --color-secondary: #1e293b;
-    --color-secondary-foreground: #f8fafc;
-    --color-muted: #1e293b;
-    --color-muted-foreground: #94a3b8;
-    --color-accent: #ffc107;
-    --color-accent-foreground: #f8fafc;
-    --color-destructive: #7f1d1d;
-    --color-destructive-foreground: #f8fafc;
-    --color-border: #1e293b;
-    --color-input: #1e293b;
-    --color-ring: #ffc107;
-  } 
+/* Force light theme */
+[data-theme="light"] {
+    @theme {
+        --color-background: #ffffff;
+        --color-foreground: #0f172a;
+        --color-primary: #ffc107;
+        --color-primary-foreground: #1e293b;
+        --color-secondary: #f1f5f9;
+        --color-secondary-foreground: #1e293b;
+        --color-muted: #f1f5f9;
+        --color-muted-foreground: #64748b;
+        --color-accent: #ffc107;
+        --color-accent-foreground: #1e293b;
+        --color-destructive: #ef4444;
+        --color-destructive-foreground: #f8fafc;
+        --color-border: #e2e8f0;
+        --color-input: #e2e8f0;
+        --color-ring: #ffc107;
+    }
+}
+
+/* Manual dark theme override */
+[data-theme="dark"] {
+    @theme {
+        --color-background: #0f172a;
+        --color-foreground: #f8fafc;
+        --color-primary: #ffc107;
+        --color-primary-foreground: #1e293b;
+        --color-secondary: #1e293b;
+        --color-secondary-foreground: #f8fafc;
+        --color-muted: #1e293b;
+        --color-muted-foreground: #94a3b8;
+        --color-accent: #ffc107;
+        --color-accent-foreground: #f8fafc;
+        --color-destructive: #7f1d1d;
+        --color-destructive-foreground: #f8fafc;
+        --color-border: #1e293b;
+        --color-input: #1e293b;
+        --color-ring: #ffc107;
+    }
 }
 
 @layer base {
+    * {
+        @apply transition-colors duration-200 ease-in-out;
+    }
+
     body {
         @apply bg-background text-foreground;
         font-family: 'Roboto Flex', sans-serif;
-        @apply transition delay-150 duration-300 ease-in-out;
     }
 
     a {
@@ -63,5 +89,21 @@
 @layer components {
     .active {
         @apply text-accent font-semibold;
+    }
+}
+
+@layer utilities {
+
+    /* Custom utilities for theme-aware styling */
+    .theme-transition {
+        @apply transition-colors duration-300 ease-in-out;
+    }
+
+    .icon-filter {
+        filter: brightness(0);
+    }
+
+    [data-theme="dark"] .icon-filter {
+        filter: brightness(1);
     }
 }
