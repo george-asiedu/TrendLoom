@@ -100,7 +100,7 @@
     }
 
     .icon-filter {
-        filter: brightness(0);
+        filter: brightness(0) invert(1);
     }
 
     [data-theme="dark"] .icon-filter {
