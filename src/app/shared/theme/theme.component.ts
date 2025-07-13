@@ -1,25 +1,31 @@
-import { Component, computed } from '@angular/core';
-import { useThemeSwitcher } from '../utils/theme.utils';
-import { NgOptimizedImage } from '@angular/common';
-import { images } from '../utils/constants';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-theme',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: './theme.component.html',
   styleUrl: './theme.component.css',
 })
-export class ThemeComponent {
-  private readonly themeStorage = useThemeSwitcher('theme', 'light');
+export class ThemeComponent implements OnInit {
+  public isDarkMode = false;
 
-  public isDark = computed(() => this.themeStorage.value() === 'dark');
-  public currentTheme = computed(() => this.themeStorage.value());
+  public ngOnInit(): void {
+    const localTheme = localStorage.getItem('theme');
+    this.isDarkMode =
+      localTheme === 'dark' ||
+      (!localTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
 
-  public moonIcon = images.moon;
-  public sunIcon = images.sun;
+  public toggleTheme(): void {
+    this.isDarkMode = !this.isDarkMode;
 
-  public themeToggle(): void {
-    this.themeStorage.toggle();
+    if (this.isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
   }
 }
