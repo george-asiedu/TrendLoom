@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
 
 /* Dark Theme - using data-theme attribute */
 @media (prefers-color-scheme: dark) {
