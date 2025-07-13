@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-theme',
@@ -7,25 +7,32 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './theme.component.html',
   styleUrl: './theme.component.css',
 })
-export class ThemeComponent implements OnInit {
-  public isDarkMode = false;
+export class ThemeComponent {
+  public isDarkMode = signal<boolean>(this.getInitialTheme());
 
-  public ngOnInit(): void {
+  public constructor() {
+    effect(() => {
+      const darkMode = this.isDarkMode();
+
+      if (darkMode) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+
+  private getInitialTheme(): boolean {
     const localTheme = localStorage.getItem('theme');
-    this.isDarkMode =
+    return (
       localTheme === 'dark' ||
-      (!localTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      (!localTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    );
   }
 
   public toggleTheme(): void {
-    this.isDarkMode = !this.isDarkMode;
-
-    if (this.isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    this.isDarkMode.update(current => !current);
   }
 }
