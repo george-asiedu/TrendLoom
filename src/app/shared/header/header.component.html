@@ -1,14 +1,16 @@
-<header class="bg-background w-full border-b border-border sticky top-0 z-50">
-  <div class="container mx-auto p-6 md:px-4 lg:px-6 flex items-center justify-between">
-    <h1 routerLink="/" class="text-primary cursor-pointer">
-      Trend<span class="text-foreground">Loom</span>
+<header
+  class="bg-background dark:bg-dark-background w-full border-b border-border dark:border-dark-border sticky top-0 z-50 theme-transition"
+>
+  <div class="container p-6 md:px-8 lg:px-20 2xl:px-0 flex items-center justify-between">
+    <h1 routerLink="/" class="text-primary dark:text-dark-primary cursor-pointer theme-transition">
+      Trend<span class="text-foreground dark:text-dark-foreground theme-transition">Loom</span>
     </h1>
     <nav class="hidden lg:flex items-center space-x-4">
       <a
         routerLink="/"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-accent"
+        class="hover-text-accent dark:hover:text-dark-accent theme-transition"
       >
         Home
       </a>
@@ -16,7 +18,7 @@
         routerLink="{{ productsRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-accent"
+        class="hover-text-accent dark:hover:text-dark-accent theme-transition"
       >
         Shop
       </a>
@@ -24,7 +26,7 @@
         routerLink="{{ categoriesRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-accent"
+        class="hover-text-accent dark:hover:text-dark-accent theme-transition"
       >
         Categories
       </a>
@@ -32,7 +34,7 @@
         routerLink="{{ aboutRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-accent"
+        class="hover-text-accent dark:hover:text-dark-accent theme-transition"
       >
         About
       </a>
@@ -40,7 +42,7 @@
         routerLink="{{ contactRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-accent"
+        class="hover-accent dark:hover:text-dark-accent theme-transition"
       >
         Contact
       </a>
@@ -49,45 +51,30 @@
       <a
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-accent cursor-pointer"
+        class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
       >
-        <img
-          [ngSrc]="searchImage"
-          width="20"
-          height="20"
-          alt="search-icon"
-        />
+        <img [ngSrc]="searchImage" width="20" height="20" alt="search-icon" class="icon-filter" />
       </a>
       <a
         routerLink="{{ cartRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-accent cursor-pointer"
+        class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
       >
-        <img
-          [ngSrc]="cartImage"
-          width="20"
-          height="20"
-          alt="cart-icon"
-        />
+        <img [ngSrc]="cartImage" width="20" height="20" alt="cart-icon" class="icon-filter" />
       </a>
       <a
         routerLink="{{ profileRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-accent cursor-pointer"
+        class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
       >
-        <img
-          [ngSrc]="profileImage"
-          width="20"
-          height="20"
-          alt="profile-icon"
-        />
+        <img [ngSrc]="profileImage" width="20" height="20" alt="profile-icon" class="icon-filter" />
       </a>
       <app-theme />
       <button
         routerLink="{{ loginRoute }}"
-        class="bg-primary tracking-wide text-accent-foreground border-none rounded-md px-6 py-2 cursor-pointer hover:ring-1 hover:ring-accent hover:bg-transparent hover:font-medium"
+        class="bg-primary dark:bg-dark-primary text-primary-foreground dark:text-dark-primary-foreground border-none rounded-md px-6 py-2 cursor-pointer hover-ring-accent dark:hover:ring-dark-accent hover-bg-transparent hover-text-accent dark:hover:text-dark-accent hover-font-medium theme-transition tracking-wide"
       >
         Login
       </button>
@@ -95,86 +82,88 @@
 
     <div class="lg:hidden flex items-center space-x-4">
       <app-theme />
-      <button (click)="isMenuOpen = !isMenuOpen" class="text-foreground hover:text-accent transition-colors">
+      <button
+        (click)="isMenuOpen = !isMenuOpen"
+        class="text-foreground dark:text-dark-foreground hover-text-accent dark:hover:text-dark-accent theme-transition"
+      >
         @if (!isMenuOpen) {
           <img
             [ngSrc]="hamburgerImage"
             width="20"
             height="20"
             alt="hamburger-icon"
+            class="icon-filter"
           />
-        } @else{
-            <img
-              [ngSrc]="closeImage"
-              width="20"
-              height="20"
-              alt="close-icon"
-            />
-          }
+        } @else {
+          <img [ngSrc]="closeImage" width="20" height="20" alt="close-icon" class="icon-filter" />
+        }
       </button>
     </div>
   </div>
 
   @if (isMenuOpen) {
     <div
-      class="lg:hidden px-3 md:px-6 absolute top-full left-0 w-full bg-background border-t border-border z-40 transition-all duration-300"
+      class="lg:hidden px-3 md:px-6 absolute top-full left-0 w-full bg-background dark:bg-dark-background border-t border-border dark:border-dark-border z-40 transition-all duration-300 theme-transition"
     >
       <nav class="flex flex-col p-4 space-y-4">
-        <a routerLink="/" (click)="isMenuOpen = false" class="hover:text-accent"
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          (click)="isMenuOpen = false"
+          class="hover-text-accent dark:hover:text-dark-accent theme-transition"
           >Home</a
         >
         <a
           routerLink="{{ productsRoute }}"
+          routerLinkActive="active"
           (click)="isMenuOpen = false"
-          class="hover:text-accent"
+          class="hover-text-accent dark:hover:text-dark-accent theme-transition"
           >Shop</a
         >
         <a
           routerLink="{{ categoriesRoute }}"
+          routerLinkActive="active"
           (click)="isMenuOpen = false"
-          class="hover:text-accent"
+          class="hover-text-accent dark:hover:text-dark-accent theme-transition"
           >Categories</a
         >
         <a
           routerLink="{{ aboutRoute }}"
+          routerLinkActive="active"
           (click)="isMenuOpen = false"
-          class="hover:text-accent"
+          class="hover-text-accent dark:hover:text-dark-accent theme-transition"
           >About</a
         >
         <a
           routerLink="{{ contactRoute }}"
+          routerLinkActive="active"
           (click)="isMenuOpen = false"
-          class="hover:text-accent"
+          class="hover-text-accent dark:hover:text-dark-accent theme-transition"
           >Contact</a
         >
-        <div class="flex items-center space-x-4 pt-2 border-t border-border mt-2">
-          <a class="cursor-pointer">
-            <img
-              [ngSrc]="searchImage"
-              width="20"
-              height="20"
-              alt="search"
-            />
+        <div
+          class="flex items-center space-x-4 pt-2 border-t border-border dark:border-dark-border mt-2"
+        >
+          <a class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5">
+            <img [ngSrc]="searchImage" width="20" height="20" alt="search" class="icon-filter" />
           </a>
-          <a routerLink="{{ cartRoute }}">
-            <img
-              [ngSrc]="cartImage"
-              width="20"
-              height="20"
-              alt="cart"
-            />
+          <a
+            routerLink="{{ cartRoute }}"
+            routerLinkActive="active"
+            class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
+          >
+            <img [ngSrc]="cartImage" width="20" height="20" alt="cart" class="icon-filter" />
           </a>
-          <a routerLink="{{ profileRoute }}">
-            <img
-              [ngSrc]="profileImage"
-              width="20"
-              height="20"
-              alt="profile"
-            />
+          <a
+            routerLink="{{ profileRoute }}"
+            routerLinkActive="active"
+            class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
+          >
+            <img [ngSrc]="profileImage" width="20" height="20" alt="profile" class="icon-filter" />
           </a>
           <button
             routerLink="{{ loginRoute }}"
-            class="bg-primary tracking-wide text-accent-foreground border-none rounded-md px-4 py-1 hover:ring hover:ring-accent hover:bg-transparent hover:font-medium"
+            class="bg-primary dark:bg-dark-primary text-primary-foreground dark:text-dark-primary-foreground border-none rounded-md px-4 py-1 hover-ring-accent dark:hover:ring-dark-accent hover-bg-transparent hover-text-accent dark:hover:text-dark-accent hover-font-medium theme-transition tracking-wide"
           >
             Login
           </button>
