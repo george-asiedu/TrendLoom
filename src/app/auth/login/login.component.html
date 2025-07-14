@@ -25,21 +25,35 @@
             required
           />
         </div>
-        <div>
+        <div class="relative">
           <label
             for="password"
             class="block mb-2 text-sm font-medium text-foreground dark:text-dark-foreground"
             >Password <span class="text-destructive">*</span></label
           >
           <input
-            type="password"
+            type="{{ showPassword() ? 'text' : 'password' }}"
             id="password"
             placeholder="••••••••"
             class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm mb-1 text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
             required
           />
+          <div
+            class="absolute top-[40%] right-4 cursor-pointer max-w-[40px]"
+            role="button"
+            tabindex="0"
+            (click)="toggleShowPassword()"
+            (keydown)="onKeyDown($event)"
+            aria-label="Toggle password visibility"
+          >
+            @if (showPassword()) {
+              <img [ngSrc]="eyeOpen" width="20" height="20" alt="Hide password" />
+            } @else {
+              <img [ngSrc]="eyeClose" width="20" height="20" alt="Show password" />
+            }
+          </div>
           <a
-            routerLink="/{{forgotPasswordRoute}}"
+            routerLink="/{{ forgotPasswordRoute }}"
             class="text-sm font-medium text-primary hover:underline"
             >Forgot password?</a
           >
@@ -49,11 +63,7 @@
         </button>
         <p class="text-sm text-center font-light text-gray-500 dark:text-gray-400">
           Don't have an account yet?
-          <a
-            routerLink="/{{signupRoute}}"
-            class="font-medium text-accent"
-            >Sign up</a
-          >
+          <a routerLink="/{{ signupRoute }}" class="font-medium text-accent">Sign up</a>
         </p>
       </form>
     </div>
