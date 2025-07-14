@@ -31,6 +31,7 @@ export const appRoutes = {
   wishlist: '/wishlist',
   address: '/address',
   notFound: '/not-found',
+  blog: '/blog',
 };
 
 export const images = {
@@ -40,8 +41,7 @@ export const images = {
   uploadIcon: 'upload-icon.svg',
   user: 'user.svg',
   search: 'search.svg',
-  lightLogo: 'light_logo.svg',
-  darkLogo: 'dark_logo.svg',
+  darkLogo: 'dark_logo.png',
   moon: 'icon-moon.svg',
   sun: 'icon-sun.svg',
   action: 'action.svg',
