@@ -2,15 +2,24 @@
   class="bg-background dark:bg-dark-background w-full border-b border-border dark:border-dark-border sticky top-0 z-50 theme-transition"
 >
   <div class="container p-6 md:px-8 lg:px-20 2xl:px-0 flex items-center justify-between">
-    <h1 routerLink="/" class="text-primary dark:text-dark-primary cursor-pointer theme-transition">
-      Trend<span class="text-foreground dark:text-dark-foreground theme-transition">Loom</span>
-    </h1>
+    <div class="flex items-center space-x-1">
+      <img
+        [ngSrc]="logoImage"
+        width="40"
+        height="40"
+        alt="logo"
+        class="cursor-pointer theme-transition rounded-full"
+      />
+      <h1 routerLink="/" class="text-primary dark:text-dark-primary cursor-pointer theme-transition">
+        Trend<span class="text-foreground dark:text-dark-foreground theme-transition">Loom</span>
+      </h1>
+    </div>
     <nav class="hidden lg:flex items-center space-x-4">
       <a
         routerLink="/"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover-text-accent dark:hover:text-dark-accent theme-transition"
+        class="hover:text-accent dark:hover:text-dark-accent theme-transition"
       >
         Home
       </a>
@@ -18,7 +27,7 @@
         routerLink="{{ productsRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover-text-accent dark:hover:text-dark-accent theme-transition"
+        class="hover:text-accent dark:hover:text-dark-accent theme-transition"
       >
         Shop
       </a>
@@ -26,7 +35,7 @@
         routerLink="{{ categoriesRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover-text-accent dark:hover:text-dark-accent theme-transition"
+        class="hover:text-accent dark:hover:text-dark-accent theme-transition"
       >
         Categories
       </a>
@@ -34,7 +43,7 @@
         routerLink="{{ aboutRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover-text-accent dark:hover:text-dark-accent theme-transition"
+        class="hover:text-accent dark:hover:text-dark-accent theme-transition"
       >
         About
       </a>
@@ -42,7 +51,7 @@
         routerLink="{{ contactRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="hover-accent dark:hover:text-dark-accent theme-transition"
+        class="hover:text-accent dark:hover:text-dark-accent theme-transition"
       >
         Contact
       </a>
@@ -74,7 +83,7 @@
       <app-theme />
       <button
         routerLink="{{ loginRoute }}"
-        class="bg-primary dark:bg-dark-primary text-primary-foreground dark:text-dark-primary-foreground border-none rounded-md px-6 py-2 cursor-pointer hover-ring-accent dark:hover:ring-dark-accent hover-bg-transparent hover-text-accent dark:hover:text-dark-accent hover-font-medium theme-transition tracking-wide"
+        class="btn hover-accent hover-ring-accent theme-transition"
       >
         Login
       </button>
