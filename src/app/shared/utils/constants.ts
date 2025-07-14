@@ -54,4 +54,12 @@ export const images = {
   close: 'icon-close.svg',
   filter: 'filter.svg',
   cart: 'cart.svg',
+  hero: 'hero.jpeg',
+  fitness: 'fitness_tracker.jpeg',
+  jbl: 'jbl.jpeg',
+  ultra: 'ultraHd.jpeg'
+};
+
+export const pageTitles = {
+  home: 'TrendLoom',
 };
