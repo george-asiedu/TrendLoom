@@ -4,15 +4,14 @@ import { authRoutes, images } from '../../shared/utils/constants';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   standalone: true,
   imports: [RouterLink, NgOptimizedImage],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.css',
 })
-export class LoginComponent {
-  public forgotPasswordRoute = authRoutes.forgotPassword;
-  public signupRoute = authRoutes.signup;
+export class SignupComponent {
+  public loginRoute = authRoutes.login;
   public showPassword = signal<boolean>(false);
   public eyeOpen = images.eyeOpen;
   public eyeClose = images.eyeClose;

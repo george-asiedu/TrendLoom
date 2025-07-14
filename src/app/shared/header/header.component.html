@@ -24,7 +24,7 @@
         Home
       </a>
       <a
-        routerLink="{{ productsRoute }}"
+        routerLink="/{{ productsRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="hover:text-accent dark:hover:text-dark-accent theme-transition"
@@ -32,7 +32,7 @@
         Shop
       </a>
       <a
-        routerLink="{{ categoriesRoute }}"
+        routerLink="/{{ categoriesRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="hover:text-accent dark:hover:text-dark-accent theme-transition"
@@ -40,7 +40,7 @@
         Categories
       </a>
       <a
-        routerLink="{{ aboutRoute }}"
+        routerLink="/{{ aboutRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="hover:text-accent dark:hover:text-dark-accent theme-transition"
@@ -48,7 +48,7 @@
         About
       </a>
       <a
-        routerLink="{{ contactRoute }}"
+        routerLink="/{{ contactRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="hover:text-accent dark:hover:text-dark-accent theme-transition"
@@ -65,7 +65,7 @@
         <img [ngSrc]="searchImage" width="20" height="20" alt="search-icon" class="icon-filter" />
       </a>
       <a
-        routerLink="{{ cartRoute }}"
+        routerLink="/{{ cartRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
@@ -73,7 +73,7 @@
         <img [ngSrc]="cartImage" width="20" height="20" alt="cart-icon" class="icon-filter" />
       </a>
       <a
-        routerLink="{{ profileRoute }}"
+        routerLink="/{{ profileRoute }}"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
@@ -82,7 +82,7 @@
       </a>
       <app-theme />
       <button
-        routerLink="{{ loginRoute }}"
+        routerLink="/{{ loginRoute }}"
         class="btn hover-accent hover-ring-accent theme-transition"
       >
         Login
@@ -123,28 +123,28 @@
           >Home</a
         >
         <a
-          routerLink="{{ productsRoute }}"
+          routerLink="/{{ productsRoute }}"
           routerLinkActive="active"
           (click)="isMenuOpen = false"
           class="hover-text-accent dark:hover:text-dark-accent theme-transition"
           >Shop</a
         >
         <a
-          routerLink="{{ categoriesRoute }}"
+          routerLink="/{{ categoriesRoute }}"
           routerLinkActive="active"
           (click)="isMenuOpen = false"
           class="hover-text-accent dark:hover:text-dark-accent theme-transition"
           >Categories</a
         >
         <a
-          routerLink="{{ aboutRoute }}"
+          routerLink="/{{ aboutRoute }}"
           routerLinkActive="active"
           (click)="isMenuOpen = false"
           class="hover-text-accent dark:hover:text-dark-accent theme-transition"
           >About</a
         >
         <a
-          routerLink="{{ contactRoute }}"
+          routerLink="/{{ contactRoute }}"
           routerLinkActive="active"
           (click)="isMenuOpen = false"
           class="hover-text-accent dark:hover:text-dark-accent theme-transition"
@@ -157,21 +157,21 @@
             <img [ngSrc]="searchImage" width="20" height="20" alt="search" class="icon-filter" />
           </a>
           <a
-            routerLink="{{ cartRoute }}"
+            routerLink="/{{ cartRoute }}"
             routerLinkActive="active"
             class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
           >
             <img [ngSrc]="cartImage" width="20" height="20" alt="cart" class="icon-filter" />
           </a>
           <a
-            routerLink="{{ profileRoute }}"
+            routerLink="/{{ profileRoute }}"
             routerLinkActive="active"
             class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
           >
             <img [ngSrc]="profileImage" width="20" height="20" alt="profile" class="icon-filter" />
           </a>
           <button
-            routerLink="{{ loginRoute }}"
+            routerLink="/{{ loginRoute }}"
             class="bg-primary dark:bg-dark-primary text-primary-foreground dark:text-dark-primary-foreground border-none rounded-md px-4 py-1 hover-ring-accent dark:hover:ring-dark-accent hover-bg-transparent hover-text-accent dark:hover:text-dark-accent hover-font-medium theme-transition tracking-wide"
           >
             Login

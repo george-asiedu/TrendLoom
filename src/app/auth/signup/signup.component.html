@@ -4,13 +4,29 @@
       <h4 class="text-primary dark:text-dark-primary text-xl font-medium">
         Trend<span class="text-foreground dark:text-dark-foreground">Loom</span>
       </h4>
-      <h3 class="text-2xl text-foreground dark:text-dark-foreground font-bold">Welcome back</h3>
+      <h3 class="text-2xl text-foreground dark:text-dark-foreground font-bold">
+        Create an account
+      </h3>
       <p class="text-muted-foreground mb-6 dark:text-dark-muted-foreground">
-        Sign in to your account to continue
+        Join TrendLoom for a better shopping experience
       </p>
       <form
         class="w-[90%] md:w-[500px] space-y-4 md:space-y-6 border border-border dark:border-dark-border rounded-lg px-4 md:px-10 py-4 md:py-6"
       >
+        <div>
+          <label
+            for="name"
+            class="block mb-2 text-sm font-medium text-foreground dark:text-dark-foreground"
+            >Name <span class="text-destructive">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Kanan Stark"
+            class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm mb-1 text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
+            required
+          />
+        </div>
         <div>
           <label
             for="email"
@@ -39,7 +55,7 @@
             required
           />
           <div
-            class="absolute top-[40%] right-4 cursor-pointer max-w-[40px]"
+            class="absolute top-[50%] right-4 cursor-pointer max-w-[40px]"
             role="button"
             tabindex="0"
             (click)="toggleShowPassword()"
@@ -52,18 +68,43 @@
               <img [ngSrc]="eyeClose" width="20" height="20" alt="Show password" />
             }
           </div>
-          <a
-            routerLink="/{{ forgotPasswordRoute }}"
-            class="text-sm font-medium text-primary hover:underline"
-            >Forgot password?</a
+        </div>
+        <div class="relative">
+          <label
+            for="confirmPassword"
+            class="block mb-2 text-sm font-medium text-foreground dark:text-dark-foreground"
+            >Confirm Password <span class="text-destructive">*</span></label
           >
+          <input
+            type="{{ showPassword() ? 'text' : 'password' }}"
+            id="confirmPassword"
+            placeholder="••••••••"
+            class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm mb-1 text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
+            required
+          />
+          <div
+            class="absolute top-[50%] right-4 cursor-pointer max-w-[40px]"
+            role="button"
+            tabindex="0"
+            (click)="toggleShowPassword()"
+            (keydown)="onKeyDown($event)"
+            aria-label="Toggle password visibility"
+          >
+            @if (showPassword()) {
+              <img [ngSrc]="eyeOpen" width="20" height="20" alt="Hide password" />
+            } @else {
+              <img [ngSrc]="eyeClose" width="20" height="20" alt="Show password" />
+            }
+          </div>
         </div>
         <button type="submit" class="w-full btn hover-accent hover-ring-accent theme-transition">
-          Sign in
+          Create Account
         </button>
         <p class="text-sm text-center font-light text-gray-500 dark:text-gray-400">
-          Don't have an account yet?
-          <a routerLink="/{{ signupRoute }}" class="font-medium text-accent">Sign up</a>
+          Already have an account?
+          <a routerLink="/{{ loginRoute }}" class="font-medium text-accent hover:underline"
+            >Sign in</a
+          >
         </p>
       </form>
     </div>
