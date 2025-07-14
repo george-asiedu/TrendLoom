@@ -23,9 +23,8 @@ export class HeaderComponent {
   public loginRoute = authRoutes.login;
   public hamburgerImage = images.hamburger;
   public closeImage = images.close;
-  public lightLogo = images.lightLogo;
-  public darkLogo = images.darkLogo;
   public cartImage = images.cart;
+  public logoImage = images.darkLogo;
 
   public isMenuOpen = false;
 }
