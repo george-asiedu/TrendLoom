@@ -22,7 +22,7 @@
     --color-input: #e2e8f0;
     --color-ring: #ffc107;
 
-    --color-dark-background: #0f172a;
+    --color-dark-background: #040a19;
     --color-dark-foreground: #f8fafc;
     --color-dark-primary: #ffc107;
     --color-dark-primary-foreground: #1e293b;
@@ -70,6 +70,10 @@
         @apply text-3xl font-bold lg:text-4xl;
         @apply dark:text-dark-foreground;
     }
+
+    p {
+        @apply text-[15px] text-muted-foreground dark:text-dark-muted-foreground;
+    }
 }
 
 @layer components {
@@ -90,34 +94,8 @@
         @apply brightness-0 invert-[0.97] sepia-[0.13] saturate-[3.17] hue-rotate-[183deg] contrast-[0.96];
     }
 
-    .card {
-        @apply bg-secondary border border-border;
-        @apply dark:bg-dark-secondary dark:border-dark-border;
-    }
-
-    .input {
-        @apply bg-input border border-border text-foreground;
-        @apply dark:bg-dark-input dark:border-dark-border dark:text-dark-foreground;
-    }
-
-    .button-primary {
-        @apply bg-primary text-primary-foreground;
-        @apply dark:bg-dark-primary dark:text-dark-primary-foreground;
-    }
-
-    .button-secondary {
-        @apply bg-secondary text-secondary-foreground;
-        @apply dark:bg-dark-secondary dark:text-dark-secondary-foreground;
-    }
-
-    .text-muted {
-        @apply text-muted-foreground;
-        @apply dark:text-dark-muted-foreground;
-    }
-
-    .bg-muted {
-        @apply bg-muted;
-        @apply dark:bg-dark-muted;
+    .btn {
+        @apply bg-primary dark:bg-dark-primary text-primary-foreground border-none rounded-md px-6 py-2 cursor-pointer hover:bg-transparent hover:font-medium tracking-wide
     }
 }
 
@@ -138,48 +116,5 @@
 
     .img-hover:hover {
         @apply bg-accent rounded-full px-2 py-1;
-    }
-
-    .hover-bg-transparent:hover {
-        @apply bg-transparent;
-    }
-
-    .hover-font-medium:hover {
-        @apply font-medium;
-    }
-
-    .bg-card {
-        @apply bg-white;
-        @apply dark:bg-gray-800;
-    }
-
-    .bg-surface {
-        @apply bg-gray-50;
-        @apply dark:bg-gray-900;
-    }
-
-    .text-heading {
-        @apply text-gray-900;
-        @apply dark:text-white;
-    }
-
-    .text-body {
-        @apply text-gray-600;
-        @apply dark:text-gray-300;
-    }
-
-    .text-caption {
-        @apply text-gray-500;
-        @apply dark:text-gray-400;
-    }
-
-    .border-default {
-        @apply border-gray-200;
-        @apply dark:border-gray-700;
-    }
-
-    .border-light {
-        @apply border-gray-100;
-        @apply dark:border-gray-800;
     }
 }
