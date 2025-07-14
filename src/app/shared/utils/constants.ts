@@ -62,5 +62,6 @@ export const images = {
 
 export const pageTitles = {
   home: 'TrendLoom',
-  login: 'TrendLoom | Login'
+  login: 'TrendLoom | Login',
+  signup: 'TrendLoom | Signup'
 };
