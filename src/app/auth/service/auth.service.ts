@@ -11,14 +11,14 @@ export class AuthService {
   private http = inject(HttpClient);
 
   public signup(user: Signup) {
-    this.http.post<SignupResponse>(`${this.authUrl}/signup`, user);
+    return this.http.post<SignupResponse>(`${this.authUrl}/signup`, user);
   }
 
   public signin(user: Signin) {
-    this.http.post<SigninResponse>(`${this.authUrl}/signin`, user);
+    return this.http.post<SigninResponse>(`${this.authUrl}/signin`, user);
   }
 
   public verifyAccount(code: string) {
-    this.http.post<SignupResponse>(`${this.authUrl}/verify-account`, code);
+    return this.http.post<SignupResponse>(`${this.authUrl}/verify-account`, code);
   }
 }
