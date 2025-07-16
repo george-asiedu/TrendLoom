@@ -1,3 +1,5 @@
+import { HttpErrorResponse } from "@angular/common/http";
+
 export interface Signup {
   name: string;
   email: string;
@@ -50,4 +52,13 @@ export interface SigninResponse {
     accessToken: string;
     refreshToken: string;
   };
+}
+
+export interface AuthState {
+  user: Signup | Signin | null;
+  signupResponse: SignupResponse | null;
+  signinResponse: SigninResponse | null;
+  verificationResponse: VerifyAccountResponse | null;
+  isLoading: boolean;
+  error: HttpErrorResponse | null;
 }
