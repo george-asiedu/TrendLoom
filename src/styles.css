@@ -46,7 +46,6 @@
 
     body {
         @apply bg-background text-foreground;
-        @apply dark:bg-dark-background dark:text-dark-foreground;
         font-family: 'Roboto Flex', sans-serif;
     }
 
@@ -62,8 +61,7 @@
     h5,
     h6,
     p {
-        @apply tracking-wide;
-        @apply dark:text-dark-foreground;
+        @apply tracking-wide text-foreground dark:text-dark-foreground;
     }
 
     h1 {
