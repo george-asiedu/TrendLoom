@@ -7,7 +7,7 @@ import { appRoutes, images } from '../../shared/utils/constants';
   standalone: true,
   imports: [NgOptimizedImage],
   templateUrl: './category.component.html',
-  styleUrl: './category.component.css'
+  styleUrl: './category.component.css',
 })
 export class CategoryComponent {
   public electronicsImage = images.ultra;
