@@ -57,7 +57,11 @@ export const images = {
   hero: 'hero.jpeg',
   fitness: 'fitness_tracker.jpeg',
   jbl: 'jbl.jpeg',
-  ultra: 'ultraHd.jpeg'
+  ultra: 'ultraHd.jpeg',
+  backpack: 'backpack.jpg',
+  cannon: 'cannon.jpg',
+  furniture: 'furniture.jpg',
+  home: 'home.jpg'
 };
 
 export const pageTitles = {
