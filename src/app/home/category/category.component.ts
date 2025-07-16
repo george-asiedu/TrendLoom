@@ -1,11 +1,12 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { appRoutes, images } from '../../shared/utils/constants';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
 })
