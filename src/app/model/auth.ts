@@ -10,10 +10,6 @@ export interface Signin {
   password: string;
 }
 
-export interface VerifyAccount {
-  code: string;
-}
-
 export interface SignupResponse {
   status: string;
   message: string;
