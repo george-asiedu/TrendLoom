@@ -1,5 +1,5 @@
 import { computed, inject, Injectable, Signal } from '@angular/core';
-import { AuthStore } from '../../auth/store/auth.store';
+import { authStore } from '../../auth/store/auth.store';
 import { HttpErrorResponse } from '@angular/common/http';
 import {
   Signup,
@@ -13,7 +13,7 @@ import {
   providedIn: 'root',
 })
 export class AuthFacade {
-  private readonly store = inject(AuthStore);
+  private readonly store = inject(authStore);
 
   // Selectors - Expose store state as signals
   public readonly user: Signal<Signup | Signin | null> = this.store.user;
