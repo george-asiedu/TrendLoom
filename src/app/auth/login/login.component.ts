@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { authRoutes } from '../../shared/utils/constants';
+import { authRoutes, validationMessages } from '../../shared/utils/constants';
 import { SpinnerComponent } from '../../shared/spinner/spinner.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthFacade } from '../../shared/facade/auth/auth.facade';
@@ -52,5 +52,22 @@ export class LoginComponent {
 
   public getControl(value: string) {
     return this.signinForm.get(value);
+  }
+
+  // eslint-disable-next-line complexity
+  public getLoginErrorMessage(controlName: string): string {
+    const loginControl = this.getControl(controlName);
+    if (!loginControl || !loginControl.invalid || !(loginControl.touched || loginControl.dirty)) {
+      return '';
+    }
+    const messages = validationMessages[controlName];
+
+    for (const errorKey in loginControl.errors) {
+      if (Object.prototype.hasOwnProperty.call(loginControl.errors, errorKey) && messages[errorKey]) {
+        return messages[errorKey];
+      }
+    }
+
+    return 'Invalid value.';
   }
 }
