@@ -18,12 +18,7 @@ export class HeaderComponent {
   public contactRoute = appRoutes.contact;
   public productsRoute = appRoutes.products;
   public categoriesRoute = appRoutes.categories;
-  public searchImage = images.search;
-  public profileImage = images.user;
   public loginRoute = authRoutes.login;
-  public hamburgerImage = images.hamburger;
-  public closeImage = images.close;
-  public cartImage = images.cart;
   public logoImage = images.darkLogo;
 
   public isMenuOpen = false;

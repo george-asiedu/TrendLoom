@@ -62,7 +62,9 @@
         [routerLinkActiveOptions]="{ exact: true }"
         class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
       >
-        <img [ngSrc]="searchImage" width="20" height="20" alt="search-icon" class="icon-filter" />
+        <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+        </svg>
       </a>
       <a
         routerLink="/{{ cartRoute }}"
@@ -70,7 +72,9 @@
         [routerLinkActiveOptions]="{ exact: true }"
         class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
       >
-        <img [ngSrc]="cartImage" width="20" height="20" alt="cart-icon" class="icon-filter" />
+        <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+        </svg>
       </a>
       <a
         routerLink="/{{ profileRoute }}"
@@ -78,7 +82,9 @@
         [routerLinkActiveOptions]="{ exact: true }"
         class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
       >
-        <img [ngSrc]="profileImage" width="20" height="20" alt="profile-icon" class="icon-filter" />
+        <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+        </svg>
       </a>
       <app-theme />
       <button
@@ -96,15 +102,13 @@
         class="text-foreground dark:text-dark-foreground cursor-pointer hover-text-accent dark:hover:text-dark-accent theme-transition"
       >
         @if (!isMenuOpen) {
-          <img
-            [ngSrc]="hamburgerImage"
-            width="20"
-            height="20"
-            alt="hamburger-icon"
-            class="icon-filter"
-          />
+          <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+          </svg>
         } @else {
-          <img [ngSrc]="closeImage" width="20" height="20" alt="close-icon" class="icon-filter" />
+          <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+          </svg>
         }
       </button>
     </div>
@@ -154,25 +158,31 @@
           class="flex items-center space-x-4 pt-2 border-t border-border dark:border-dark-border mt-2"
         >
           <a class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5">
-            <img [ngSrc]="searchImage" width="20" height="20" alt="search" class="icon-filter" />
+            <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+            </svg>
           </a>
           <a
             routerLink="/{{ cartRoute }}"
             routerLinkActive="active"
             class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
           >
-            <img [ngSrc]="cartImage" width="20" height="20" alt="cart" class="icon-filter" />
+            <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+            </svg>
           </a>
           <a
             routerLink="/{{ profileRoute }}"
             routerLinkActive="active"
             class="cursor-pointer theme-transition hover:bg-accent rounded-full text-sm p-2.5"
           >
-            <img [ngSrc]="profileImage" width="20" height="20" alt="profile" class="icon-filter" />
+            <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+            </svg>
           </a>
           <button
             routerLink="/{{ loginRoute }}"
-            class="bg-primary dark:bg-dark-primary text-primary-foreground dark:text-dark-primary-foreground border-none rounded-md px-4 py-1 hover-ring-accent dark:hover:ring-dark-accent hover-bg-transparent hover-text-accent dark:hover:text-dark-accent hover-font-medium theme-transition tracking-wide"
+            class="btn hover-accent hover-ring-accent theme-transition"
           >
             Login
           </button>
