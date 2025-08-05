@@ -9,6 +9,8 @@
         Sign in to your account to continue
       </p>
       <form
+        [formGroup]="signinForm"
+        (ngSubmit)="onSigninSubmit()"
         class="w-[90%] md:w-[500px] space-y-4 md:space-y-6 border border-border dark:border-dark-border rounded-lg px-4 md:px-10 py-4 md:py-6"
       >
         <div>
@@ -20,10 +22,24 @@
           <input
             type="email"
             id="email"
+            formControlName="email"
             class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
             placeholder="name@company.com"
             required
           />
+          @if (
+            getControl('email')?.invalid &&
+            (getControl('email')?.touched || getControl('email')?.dirty)
+          ) {
+            <div class="error">
+              @if (getControl('email')?.errors?.['required']) {
+                <small>email is required</small>
+              }
+              @if (getControl('email')?.errors?.['invalidEmail']) {
+                <small>invalid email format</small>
+              }
+            </div>
+          }
         </div>
         <div class="relative">
           <label
@@ -34,7 +50,8 @@
           <input
             type="{{ showPassword() ? 'text' : 'password' }}"
             id="password"
-            placeholder="••••••••"
+            placeholder="password"
+            formControlName="password"
             class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm mb-1 text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
             required
           />
@@ -52,14 +69,38 @@
               <img [ngSrc]="eyeClose" width="20" height="20" alt="Show password" />
             }
           </div>
+          @if (
+            getControl('password')?.invalid &&
+            (getControl('password')?.touched || getControl('password')?.dirty)
+          ) {
+            <div class="error">
+              @if (getControl('password')?.errors?.['required']) {
+                <small>password is required</small>
+              }
+              @if (getControl('password')?.errors?.['invalidPassword']) {
+                <small>password is not strong enough</small>
+              }
+            </div>
+          }
           <a
             routerLink="/{{ forgotPasswordRoute }}"
             class="text-sm font-medium text-primary hover:underline"
             >Forgot password?</a
           >
         </div>
-        <button type="submit" class="w-full btn hover-accent hover-ring-accent theme-transition">
-          Sign in
+        <button
+          type="submit"
+          [disabled]="signinForm.invalid || isLoading"
+          class="w-full btn hover-accent hover-ring-accent theme-transition disabled:cursor-not-allowed disabled:bg-muted disabled:dark:bg-muted-foreground"
+        >
+          @if (!isLoading) {
+            <p>Sign in</p>
+          } @else {
+            <span class="flex items-center gap-[10px]">
+              <app-spinner />
+              <p>Signing in...</p>
+            </span>
+          }
         </button>
         <p class="text-sm text-center font-light text-gray-500 dark:text-gray-400">
           Don't have an account yet?
