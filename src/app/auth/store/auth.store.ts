@@ -6,6 +6,7 @@ import { AuthService } from '../service/auth.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap, tap } from 'rxjs';
 import { mapResponse } from '@ngrx/operators';
+import { withDevtools } from '@angular-architects/ngrx-toolkit';
 
 const initialState: AuthState = {
   user: null,
@@ -18,6 +19,7 @@ const initialState: AuthState = {
 
 export const authStore = signalStore(
   { providedIn: 'root' },
+  withDevtools('auth'),
   withState(initialState),
   withMethods((store, authService = inject(AuthService)) => ({
     signup: rxMethod<Signup>(
