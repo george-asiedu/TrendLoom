@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { authRoutes } from '../../shared/utils/constants';
+import { authRoutes, validationMessages } from '../../shared/utils/constants';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { nameValidator } from '../../shared/validators/name.validator';
 import { emailValidator } from '../../shared/validators/email.validator';
@@ -25,7 +25,7 @@ export class SignupComponent {
   private readonly fb = inject(FormBuilder);
   public readonly signupForm: FormGroup;
   private readonly authFacade = inject(AuthFacade);
-  public readonly isLoading = this.authFacade.isLoading();
+  public isLoading = this.authFacade.isLoading();
 
   public constructor() {
     this.signupForm = this.fb.group({
@@ -38,7 +38,7 @@ export class SignupComponent {
 
   public onSignupSubmit() {
     if (this.signupForm.invalid) return;
-
+    this.isLoading = true;
     const user: Signup = this.signupForm.value;
     this.authFacade.signup(user);
   }
@@ -51,14 +51,35 @@ export class SignupComponent {
     this.showConfirmPassword.update(value => !value);
   }
 
-  public onKeyDown(event: KeyboardEvent): void {
+  public onKeyDown(event: KeyboardEvent, field: 'password' | 'confirmPassword'): void {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      this.toggleShowPassword();
+      if (field === 'password') {
+        this.toggleShowPassword();
+      } else {
+        this.toggleShowConfirmPassword();
+      }
     }
   }
 
   public getControl(value: string) {
     return this.signupForm.get(value);
+  }
+
+  // eslint-disable-next-line complexity
+  public getErrorMessage(controlName: string): string {
+    const control = this.getControl(controlName);
+    if (!control || !control.invalid || !(control.touched || control.dirty)) {
+      return '';
+    }
+    const messages = validationMessages[controlName];
+
+    for (const errorKey in control.errors) {
+      if (Object.prototype.hasOwnProperty.call(control.errors, errorKey) && messages[errorKey]) {
+        return messages[errorKey];
+      }
+    }
+
+    return 'Invalid value.';
   }
 }
