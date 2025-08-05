@@ -15,42 +15,29 @@ export interface Signin {
 export interface SignupResponse {
   status: string;
   message: string;
-  data: {
-    user: {
-      id: string;
-      email: string;
-      name: string;
-    };
-    token: string;
-  };
+  data: { token: string };
 }
 
 export interface VerifyAccountResponse {
   status: string;
   message: string;
-  data: {
-    user: {
-      id: string;
-      email: string;
-      name: string;
-      isEmailVerified: boolean;
-    };
-  };
 }
 
 export interface SigninResponse {
   status: string;
   message: string;
   data: {
+    token: {
+      accessToken: string;
+      refreshToken: string;
+    };
     user: {
       id: string;
-      email: string;
       name: string;
+      email: string;
       role: string;
-      isEmailVerified: boolean;
+      accountStatus: string;
     };
-    accessToken: string;
-    refreshToken: string;
   };
 }
 

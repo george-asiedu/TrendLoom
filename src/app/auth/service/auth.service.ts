@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private authUrl = `${environment.baseUrl}/auth`;
+  private authUrl = `${environment.localUrl}/auth`;
   private http = inject(HttpClient);
 
   public signup(user: Signup): Observable<SignupResponse> {
