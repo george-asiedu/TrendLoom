@@ -75,17 +75,17 @@ export class AuthFacade {
   // Helper methods for specific error handling
   public isSignupError(): boolean {
     const error = this.error();
-    return !!error && this.isLoading() === false && !this.signupResponse();
+    return !!error && !this.isLoading () && !this.signupResponse();
   }
 
   public isSigninError(): boolean {
     const error = this.error();
-    return !!error && this.isLoading() === false && !this.signinResponse();
+    return !!error && !this.isLoading () && !this.signinResponse();
   }
 
   public isVerificationError(): boolean {
     const error = this.error();
-    return !!error && this.isLoading() === false && !this.verificationResponse();
+    return !!error && !this.isLoading () && !this.verificationResponse();
   }
 
   // Retry methods
