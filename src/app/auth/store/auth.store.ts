@@ -31,7 +31,6 @@ export const authStore = signalStore(
               next: response =>
                 patchState(store, {
                   signupResponse: response,
-                  user,
                   isLoading: false,
                 }),
               error: (error: HttpErrorResponse) =>
@@ -54,7 +53,6 @@ export const authStore = signalStore(
               next: response =>
                 patchState(store, {
                   signinResponse: response,
-                  user,
                   isLoading: false,
                 }),
               error: (error: HttpErrorResponse) =>
