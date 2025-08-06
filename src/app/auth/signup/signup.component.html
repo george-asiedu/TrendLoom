@@ -144,11 +144,11 @@
           class="w-full btn hover-accent hover-ring-accent theme-transition disabled:cursor-not-allowed disabled:bg-muted disabled:dark:bg-muted-foreground"
         >
           @if (!isLoading) {
-            <p>Create Account</p>
+            <p class="text-primary-foreground">Create Account</p>
           } @else {
             <span class="flex items-center gap-[10px]">
               <app-spinner />
-              <p>Creating account...</p>
+              <p class="text-primary-foreground">Creating account...</p>
             </span>
           }
         </button>
