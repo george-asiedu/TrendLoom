@@ -24,8 +24,7 @@ export class SignupComponent {
 
   private readonly fb = inject(FormBuilder);
   public readonly signupForm: FormGroup;
-  private readonly authFacade = inject(AuthFacade);
-  public isLoading = this.authFacade.isLoading();
+  public authFacade = inject(AuthFacade);
 
   public constructor() {
     this.signupForm = this.fb.group({
@@ -38,9 +37,8 @@ export class SignupComponent {
 
   public onSignupSubmit() {
     if (this.signupForm.invalid) return;
-    this.isLoading = true;
-    const user: Signup = this.signupForm.value;
-    this.authFacade.signup(user);
+    this.authFacade.signup(this.signupForm.value as Signup);
+    this.signupForm.reset();
   }
 
   public toggleShowPassword(): void {
