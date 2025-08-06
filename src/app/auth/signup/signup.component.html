@@ -140,10 +140,10 @@
 
         <button
           type="submit"
-          [disabled]="signupForm.invalid || isLoading"
+          [disabled]="signupForm.invalid || authFacade.isLoading()"
           class="w-full btn hover-accent hover-ring-accent theme-transition disabled:cursor-not-allowed disabled:bg-muted disabled:dark:bg-muted-foreground"
         >
-          @if (!isLoading) {
+          @if (!authFacade.isLoading()) {
             <p class="text-primary-foreground">Create Account</p>
           } @else {
             <span class="flex items-center gap-[10px]">
