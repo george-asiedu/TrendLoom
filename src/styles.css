@@ -93,7 +93,7 @@
     }
 
     .btn {
-        @apply bg-primary dark:bg-dark-primary text-primary-foreground border-none rounded-md px-6 py-2 cursor-pointer hover:bg-transparent hover:font-medium tracking-wide
+        @apply bg-primary dark:bg-dark-primary text-primary-foreground border-none rounded-md px-8 py-3 cursor-pointer hover:bg-transparent hover:font-medium tracking-wide
     }
 
     .error {
