@@ -141,7 +141,7 @@
         <button
           type="submit"
           [disabled]="signupForm.invalid || authFacade.isLoading()"
-          class="w-full btn hover-accent hover-ring-accent theme-transition disabled:cursor-not-allowed disabled:bg-muted disabled:dark:bg-muted-foreground"
+          class="w-full flex items-center gap-3 btn hover-accent hover-ring-accent theme-transition disabled:cursor-not-allowed disabled:bg-muted disabled:dark:bg-muted-foreground"
         >
           @if (!authFacade.isLoading()) {
             <p class="text-primary-foreground">Create Account</p>
