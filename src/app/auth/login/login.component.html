@@ -80,14 +80,14 @@
         <button
           type="submit"
           [disabled]="signinForm.invalid || authFacade.isLoading()"
-          class="w-full flex items-center btn hover-accent hover-ring-accent theme-transition disabled:cursor-not-allowed disabled:bg-muted disabled:dark:bg-muted-foreground"
+          class="w-full flex items-center justify-center btn hover-accent hover-ring-accent theme-transition disabled:cursor-not-allowed disabled:bg-muted disabled:dark:bg-muted-foreground"
         >
           @if (!authFacade.isLoading()) {
-            <p class="text-primary-foreground">Sign in</p>
+            <p class="text-primary-foreground dark:text-dark-foreground text-center">Sign in</p>
           } @else {
             <span class="flex items-center gap-[10px]">
               <app-spinner />
-              <p class="text-primary-foreground">Signing in...</p>
+              <p class="text-primary-foreground dark:text-dark-foreground">Signing in...</p>
             </span>
           }
         </button>
