@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import { SpinnerComponent } from '../../shared/spinner/spinner.component';
 import { AuthFacade } from '../../shared/facade/auth/auth.facade';
 import { otpCodeValidator } from '../../shared/validators/opt-code.validator';
@@ -8,7 +7,7 @@ import { validationMessages } from '../../shared/utils/constants';
 
 @Component({
   selector: 'app-verify-account',
-  imports: [RouterLink, ReactiveFormsModule, SpinnerComponent],
+  imports: [ReactiveFormsModule, SpinnerComponent],
   templateUrl: './verify-account.component.html',
   styleUrl: './verify-account.component.css',
 })
