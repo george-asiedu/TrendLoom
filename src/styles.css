@@ -93,11 +93,15 @@
     }
 
     .btn {
-        @apply bg-primary dark:bg-dark-primary text-primary-foreground border-none rounded-md px-8 py-3 cursor-pointer hover:bg-transparent hover:font-medium tracking-wide
+        @apply bg-primary dark:bg-dark-primary text-primary-foreground border-none rounded-md px-8 py-[10px] cursor-pointer hover:bg-transparent hover:font-medium tracking-wide
     }
 
     .error {
         @apply text-destructive text-sm flex items-center justify-between
+    }
+
+    .auth-input {
+        @apply w-full bg-transparent py-[10px] px-5 border border-border dark:border-dark-border rounded-md text-sm text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent
     }
 }
 
