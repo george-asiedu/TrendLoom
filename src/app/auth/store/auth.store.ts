@@ -4,9 +4,10 @@ import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { inject } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { pipe, switchMap, tap } from 'rxjs';
+import { EMPTY, pipe, switchMap, tap } from 'rxjs';
 import { mapResponse } from '@ngrx/operators';
 import { withDevtools } from '@angular-architects/ngrx-toolkit';
+import { errorMessages } from '../../shared/utils/constants';
 
 const initialState: AuthState = {
   user: null,
@@ -70,7 +71,16 @@ export const authStore = signalStore(
       pipe(
         tap(() => patchState(store, { isLoading: true, error: null })),
         switchMap((code: string) => {
-          return authService.verifyAccount(code).pipe(
+          const token = store.signupResponse()?.data.token;
+          if (!token) {
+            const error = new HttpErrorResponse({
+              error: errorMessages.verificationToken,
+              status: 400,
+            });
+            patchState(store, { error, isLoading: false });
+            return EMPTY;
+          }
+          return authService.verifyAccount(code, token).pipe(
             mapResponse({
               next: response =>
                 patchState(store, {
