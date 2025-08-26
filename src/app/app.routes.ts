@@ -13,5 +13,10 @@ export const routes: Routes = [
     path: authRoutes.signup,
     loadComponent: () => import('./auth/signup/signup.component').then(c => c.SignupComponent),
     title: pageTitles.signup,
-  }
+  },
+  {
+    path: authRoutes.verifyAccount,
+    loadComponent: () => import('./auth/verify-account/verify-account.component').then(c => c.VerifyAccountComponent),
+    title: pageTitles.verifyAccount,
+  },
 ];
