@@ -27,7 +27,7 @@
             id="name"
             formControlName="name"
             placeholder="Enter your name"
-            class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm mb-1 text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
+            class="auth-input"
             required
           />
           @if (getErrorMessage('name'); as errorMessage) {
@@ -47,7 +47,7 @@
             type="email"
             id="email"
             formControlName="email"
-            class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
+            class="auth-input"
             placeholder="Email address"
             required
           />
@@ -69,7 +69,7 @@
             id="password"
             placeholder="password"
             formControlName="password"
-            class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm mb-1 text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
+            class="auth-input"
             required
           />
           <div
@@ -109,7 +109,7 @@
             id="confirmPassword"
             formControlName="confirmPassword"
             placeholder="password"
-            class="w-full bg-transparent p-2 border border-border dark:border-dark-border rounded-md text-sm mb-1 text-foreground dark:text-dark-foreground focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-dark-accent"
+            class="auth-input"
             required
           />
           <div
