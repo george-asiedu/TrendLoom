@@ -1,0 +1,57 @@
+<div class="bg-background dark:bg-dark-background">
+  <div class="container py-12">
+    <div class="flex flex-col items-center justify-center space-y-2">
+      <h4 class="text-primary dark:text-dark-primary text-xl font-medium">
+        Trend<span class="text-foreground dark:text-dark-foreground">Loom</span>
+      </h4>
+      <h3 class="text-2xl text-foreground dark:text-dark-foreground font-bold">
+        Verify your account
+      </h3>
+      <p class="text-muted-foreground mb-6 dark:text-dark-muted-foreground">
+        Enter the 6-digit code send to your email to verify your account
+      </p>
+      <form
+        [formGroup]="verifyAccountForm"
+        (ngSubmit)="onVerifyAccountSubmit()"
+        class="w-[90%] md:w-[500px] space-y-4 md:space-y-6 border border-border dark:border-dark-border rounded-lg px-4 md:px-10 py-4 md:py-6"
+      >
+        <div>
+          <label
+            for="code"
+            class="block mb-2 text-sm font-medium text-foreground dark:text-dark-foreground"
+            >Code <span class="text-destructive">*</span></label
+          >
+          <input
+            type="email"
+            id="code"
+            formControlName="code"
+            class="auth-input"
+            placeholder="Enter verification code here"
+            required
+          />
+          @if (getLoginErrorMessage('code'); as errorMessage) {
+            <div class="error">
+              <small>{{ errorMessage }}</small>
+            </div>
+          }
+        </div>
+        <button
+          type="submit"
+          [disabled]="verifyAccountForm.invalid || authFacade.isLoading()"
+          class="w-full flex items-center justify-center btn hover-accent hover-ring-accent theme-transition disabled:cursor-not-allowed disabled:bg-muted disabled:dark:bg-muted-foreground"
+        >
+          @if (!authFacade.isLoading()) {
+            <p class="text-primary-foreground dark:text-dark-foreground text-center">
+              Verify Account
+            </p>
+          } @else {
+            <span class="flex items-center gap-[10px]">
+              <app-spinner />
+              <p class="text-primary-foreground dark:text-dark-foreground">Verifying account...</p>
+            </span>
+          }
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

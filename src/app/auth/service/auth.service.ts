@@ -19,7 +19,7 @@ export class AuthService {
     return this.http.post<SigninResponse>(`${this.authUrl}/signin`, user);
   }
 
-  public verifyAccount(code: string): Observable<VerifyAccountResponse> {
-    return this.http.post<VerifyAccountResponse>(`${this.authUrl}/verify-account`, { code });
+  public verifyAccount(code: string, token: string): Observable<VerifyAccountResponse> {
+    return this.http.post<VerifyAccountResponse>(`${this.authUrl}/verify-account?token=${token}`, { code });
   }
 }

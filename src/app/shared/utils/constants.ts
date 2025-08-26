@@ -67,24 +67,34 @@ export const images = {
 export const pageTitles = {
   home: 'TrendLoom',
   login: 'TrendLoom | Login',
-  signup: 'TrendLoom | Signup'
+  signup: 'TrendLoom | Signup',
+  verifyAccount: 'TrendLoom | Verify Account',
 };
 
 export const validationMessages: Record<string, Record<string, string>> = {
   name: {
     required: 'Name is required.',
-    invalidName: 'Must contain only alphabets.'
+    invalidName: 'Must contain only alphabets.',
   },
   email: {
     required: 'Email is required.',
-    invalidEmail: 'Invalid email format.'
+    invalidEmail: 'Invalid email format.',
   },
   password: {
     required: 'Password is required.',
-    invalidPassword: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'
+    invalidPassword:
+      'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
   },
   confirmPassword: {
     required: 'Confirm password is required.',
-    passwordMismatch: 'Passwords do not match.'
-  }
+    passwordMismatch: 'Passwords do not match.',
+  },
+  code: {
+    required: 'Code is required',
+    invalidCode: 'Code must be a six-digit character',
+  },
+};
+
+export const errorMessages = {
+  verificationToken: 'Verification token not found. Please sign up again.',
 };
