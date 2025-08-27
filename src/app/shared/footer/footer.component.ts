@@ -11,7 +11,7 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrl: './footer.component.css',
 })
 export class FooterComponent {
-  public logoImage = images.darkLogo;
+  public logoImage = images.logo;
   public profileRoute = appRoutes.profile;
   public aboutRoute = appRoutes.about;
   public contactRoute = appRoutes.contact;
