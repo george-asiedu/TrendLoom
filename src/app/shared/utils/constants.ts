@@ -61,7 +61,8 @@ export const images = {
   backpack: 'backpack.jpg',
   cannon: 'cannon.jpg',
   furniture: 'furniture.jpg',
-  home: 'home.jpg'
+  home: 'home.jpg',
+  logo: 'https://res.cloudinary.com/dhyqv69zh/image/upload/v1754381852/dark_logo_ufzkkn_24a6cc.png'
 };
 
 export const pageTitles = {
