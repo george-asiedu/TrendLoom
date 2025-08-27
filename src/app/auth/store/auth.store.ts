@@ -7,7 +7,8 @@ import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { EMPTY, pipe, switchMap, tap } from 'rxjs';
 import { mapResponse } from '@ngrx/operators';
 import { withDevtools } from '@angular-architects/ngrx-toolkit';
-import { errorMessages } from '../../shared/utils/constants';
+import { authRoutes, errorMessages } from '../../shared/utils/constants';
+import { Router } from '@angular/router';
 
 const initialState: AuthState = {
   user: null,
@@ -22,18 +23,20 @@ export const authStore = signalStore(
   { providedIn: 'root' },
   withDevtools('auth'),
   withState(initialState),
-  withMethods((store, authService = inject(AuthService)) => ({
+  withMethods((store, authService = inject(AuthService), router = inject(Router)) => ({
     signup: rxMethod<Signup>(
       pipe(
         tap(() => patchState(store, { isLoading: true, error: null })),
         switchMap((user: Signup) => {
           return authService.signup(user).pipe(
             mapResponse({
-              next: response =>
+              next: response => {
                 patchState(store, {
                   signupResponse: response,
                   isLoading: false,
-                }),
+                });
+                router.navigateByUrl(authRoutes.verifyAccount);
+              },
               error: (error: HttpErrorResponse) =>
                 patchState(store, {
                   error,
@@ -78,15 +81,18 @@ export const authStore = signalStore(
               status: 400,
             });
             patchState(store, { error, isLoading: false });
+            router.navigateByUrl(authRoutes.signup); 
             return EMPTY;
           }
           return authService.verifyAccount(code, token).pipe(
             mapResponse({
-              next: response =>
+              next: response => {
                 patchState(store, {
                   verificationResponse: response,
                   isLoading: false,
-                }),
+                });
+                router.navigateByUrl(authRoutes.login);
+              }, 
               error: (error: HttpErrorResponse) =>
                 patchState(store, {
                   error,
