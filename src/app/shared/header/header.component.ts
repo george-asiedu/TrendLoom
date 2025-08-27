@@ -19,7 +19,7 @@ export class HeaderComponent {
   public productsRoute = appRoutes.products;
   public categoriesRoute = appRoutes.categories;
   public loginRoute = authRoutes.login;
-  public logoImage = images.darkLogo;
+  public logoImage = images.logo;
 
   public isMenuOpen = false;
 }
